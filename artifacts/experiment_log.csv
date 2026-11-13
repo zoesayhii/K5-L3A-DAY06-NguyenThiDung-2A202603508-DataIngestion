@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed-size words,256,50,"document_id; source; page; chapter",none,"Gemini gemini-embedding-001 / 768","Baseline; compare fixed windows with paragraph boundaries","8/15","14/15","3/5","5/5","Run 20261113T222402Z; 110 chunks; embed 4.813s, store 0.105s; Gemini billing not available in runner"
+B,paragraph,256,0,"document_id; source; page; chapter",none,"Gemini gemini-embedding-001 / 768","Expect paragraph boundaries to improve coherence versus A","4/15","7/15","1/5","2/5","Run 20261113T222402Z; 167 chunks; embed 6.381s, store 0.092s; title-only chunks observed; Gemini billing not available in runner"
+C,paragraph,256,0,"document_id; source; page; chapter","chapter from question context","Gemini gemini-embedding-001 / 768","Compare metadata filtering with B while keeping chunks and vectors identical","4/15","7/15","1/5","2/5","Run 20261113T222402Z; 167 chunks; reused B embeddings, store 0.094s; test filter adherence 3/3; Gemini billing not available in runner"

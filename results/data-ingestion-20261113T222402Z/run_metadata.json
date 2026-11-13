@@ -1,0 +1,203 @@
+{
+  "run_id": "20261113T222402Z",
+  "created_at": "2026-11-13T22:24:20.543672+00:00",
+  "phase": "dev",
+  "corpus": {
+    "documents": [
+      {
+        "source_id": "cancer-biology",
+        "title": "Cancer Biology",
+        "physical_pages": 7,
+        "content_pages": 5,
+        "content_characters": 20243,
+        "manifest_extracted_characters": 20243
+      },
+      {
+        "source_id": "cancer-prevention-and-screening",
+        "title": "Cancer Prevention and Screening",
+        "physical_pages": 10,
+        "content_pages": 7,
+        "content_characters": 30476,
+        "manifest_extracted_characters": 30476
+      },
+      {
+        "source_id": "environmental-and-infectious-causes-of-malignancy",
+        "title": "Environmental and Infectious Causes of Malignancy",
+        "physical_pages": 6,
+        "content_pages": 4,
+        "content_characters": 15031,
+        "manifest_extracted_characters": 15031
+      },
+      {
+        "source_id": "epidemiology-and-the-cancer-problem",
+        "title": "Epidemiology and the Cancer Problem",
+        "physical_pages": 4,
+        "content_pages": 2,
+        "content_characters": 8024,
+        "manifest_extracted_characters": 8024
+      },
+      {
+        "source_id": "familial-cancer-syndromes",
+        "title": "Familial Cancer Syndromes",
+        "physical_pages": 5,
+        "content_pages": 3,
+        "content_characters": 9113,
+        "manifest_extracted_characters": 9113
+      },
+      {
+        "source_id": "nutrition-and-cancer",
+        "title": "Nutrition and Cancer",
+        "physical_pages": 12,
+        "content_pages": 9,
+        "content_characters": 18556,
+        "manifest_extracted_characters": 18556
+      },
+      {
+        "source_id": "the-pathology-of-cancer",
+        "title": "The Pathology of Cancer",
+        "physical_pages": 11,
+        "content_pages": 8,
+        "content_characters": 22872,
+        "manifest_extracted_characters": 22872
+      }
+    ],
+    "content_pages": 38,
+    "content_characters": 124315
+  },
+  "embedding_model": "gemini-embedding-001",
+  "embedding_sdk_version": "3.3.0",
+  "embedding_dimensions": 768,
+  "pypdf_version": "6.21.4",
+  "psycopg_version": "3.3.8",
+  "python_version": "3.12.2",
+  "vector_store": {
+    "postgresql_version": "16.16 (Debian 16.16-1.pgdg12+1)",
+    "pgvector_version": "0.8.7"
+  },
+  "metric": "cosine distance",
+  "search_type": "exact",
+  "strategies": {
+    "A": "A_fixed_256_words_overlap_50",
+    "B": "B_paragraph_256_words",
+    "C": "C_paragraph_256_words_filter"
+  },
+  "index_names": {
+    "A_fixed_256_words_overlap_50": "20261113T222402Z:A_fixed_256_words_overlap_50",
+    "B_paragraph_256_words": "20261113T222402Z:B_paragraph_256_words",
+    "C_paragraph_256_words_filter": "20261113T222402Z:C_paragraph_256_words_filter"
+  },
+  "strategy_stats": {
+    "A_fixed_256_words_overlap_50": {
+      "chunk_count": 110,
+      "embedding_seconds": 4.812542683000174,
+      "store_seconds": 0.10478479599987622,
+      "chunking_seconds": 0.004548160000013013,
+      "mean_chunk_words": 204.01818181818183
+    },
+    "B_paragraph_256_words": {
+      "chunk_count": 167,
+      "embedding_seconds": 6.381448895999711,
+      "store_seconds": 0.09192927399999462,
+      "chunking_seconds": 0.004548160000013013,
+      "mean_chunk_words": 114.25149700598803
+    },
+    "C_paragraph_256_words_filter": {
+      "chunk_count": 167,
+      "embedding_seconds": 0.0,
+      "store_seconds": 0.09362498100017547,
+      "chunking_seconds": 0.004548160000013013,
+      "mean_chunk_words": 114.25149700598803,
+      "embedding_reused": true
+    }
+  },
+  "dev_evaluation_seconds": 6.405488260999846,
+  "dev_metrics": {
+    "A_fixed_256_words_overlap_50": {
+      "dev": {
+        "total": 15,
+        "hit_1_count": 8,
+        "hit_3_count": 14,
+        "hit_1_accuracy": 0.5333333333333333,
+        "hit_3_accuracy": 0.9333333333333333,
+        "filter_compliance": {
+          "compliant_questions": 5,
+          "filtered_questions": 6
+        }
+      }
+    },
+    "B_paragraph_256_words": {
+      "dev": {
+        "total": 15,
+        "hit_1_count": 4,
+        "hit_3_count": 7,
+        "hit_1_accuracy": 0.26666666666666666,
+        "hit_3_accuracy": 0.4666666666666667,
+        "filter_compliance": {
+          "compliant_questions": 5,
+          "filtered_questions": 6
+        }
+      }
+    },
+    "C_paragraph_256_words_filter": {
+      "dev": {
+        "total": 15,
+        "hit_1_count": 4,
+        "hit_3_count": 7,
+        "hit_1_accuracy": 0.26666666666666666,
+        "hit_3_accuracy": 0.4666666666666667,
+        "filter_compliance": {
+          "compliant_questions": 6,
+          "filtered_questions": 6
+        }
+      }
+    }
+  },
+  "input_fingerprint": "d88baf5783a89fa8304c85adef506c6661b6b7f981f470a4556a001a6d2d4519",
+  "api_cost_usd": null,
+  "api_cost_note": "Check provider billing; cost is not inferred by this runner.",
+  "test_completed_at": "2026-11-13T22:25:12.870642+00:00",
+  "selected_strategy_on_dev": "A_fixed_256_words_overlap_50",
+  "selection_criterion": "Highest dev Evidence Hit@3; break ties by Hit@1",
+  "test_evaluation_seconds": 2.201276376000351,
+  "test_metrics": {
+    "A_fixed_256_words_overlap_50": {
+      "test": {
+        "total": 5,
+        "hit_1_count": 3,
+        "hit_3_count": 5,
+        "hit_1_accuracy": 0.6,
+        "hit_3_accuracy": 1.0,
+        "filter_compliance": {
+          "compliant_questions": 3,
+          "filtered_questions": 3
+        }
+      }
+    },
+    "B_paragraph_256_words": {
+      "test": {
+        "total": 5,
+        "hit_1_count": 1,
+        "hit_3_count": 2,
+        "hit_1_accuracy": 0.2,
+        "hit_3_accuracy": 0.4,
+        "filter_compliance": {
+          "compliant_questions": 2,
+          "filtered_questions": 3
+        }
+      }
+    },
+    "C_paragraph_256_words_filter": {
+      "test": {
+        "total": 5,
+        "hit_1_count": 1,
+        "hit_3_count": 2,
+        "hit_1_accuracy": 0.2,
+        "hit_3_accuracy": 0.4,
+        "filter_compliance": {
+          "compliant_questions": 3,
+          "filtered_questions": 3
+        }
+      }
+    }
+  }
+}
